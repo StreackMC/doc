@@ -1,0 +1,7 @@
+test
+*todo*
+*obsidian*
+repo.sh
+_site
+.jekyll-cache
+.DS_Store
