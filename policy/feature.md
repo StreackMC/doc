@@ -5,6 +5,8 @@ description: "拓展与协议支持"
 <small id="old_menu"><a href="/">首页</a> | <a href="/doc/">文档</a></small><small><a href="/doc">←返回</a> |
  创建：2025-01-20 | 最后更新：2026-03-20</small><br>
 
+> [x] 该文章或主题已不适用现行的 Streack ，仅供存档。
+
 ## 连接与安全
 
 ### 登录验证

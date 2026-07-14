@@ -13,11 +13,9 @@ description: "致力于解决您所想知道的一切"
 ## QuickStart
 * [资讯一览](./news/)
 * [更新日志](./updata)
-* [服务器特性](./policy/feature)
 
 ## 教程与百科
 * [无法连接到服务器的一般解决方案](./wiki/solution)
-* [优化粘液科技体验](./wiki/slimefun)
 * [将Bedrock账户绑定至Java版账户](./wiki/linkaccount)
 * [群智能体指南](./wiki/qbot)
 * [特有进度与挑战](./wiki/advancements)
@@ -51,5 +49,12 @@ description: "致力于解决您所想知道的一切"
 ## 其它链接
 * [MCMOD找服玩上的栈流Streack฿](https://play.mcmod.cn/sv20188495.html)
 * [MCLists.cn上的栈流Streack฿](https://www.mclists.cn/server/8373.html)
+
+## 已过时
+
+> [x] 以下文章或主题已不适用现行的 Streack ，仅供存档。
+
+* [优化粘液科技体验](./wiki/slimefun)
+* [服务器特性](./policy/feature)
 
 <div id="mdRender_config" data-sideship-hide="2"></div>

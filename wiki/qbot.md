@@ -3,7 +3,7 @@ title: "群智能体指南"
 description: "QQBOT"
 ---
 <small id="old_menu"><a href="/">首页</a> | <a href="/doc/">文档</a></small><small><a href="../../">←返回</a> |
- 创建：2025-05-29 | 最后更新：2025-05-30</small><br>
+ 创建：2025-05-29 | 最后更新：2026-07-14</small><br>
 
 [栈流Streack的交流群฿](https://streack.top/#qqun)内有QQ智能体，为您提供相关服务。
 
@@ -29,6 +29,8 @@ description: "QQBOT"
 
 ## MC相关
 ### `streack`
+
+> [!] 本功能不稳定，可能不会按预期工作。
 
 对服务器发起MOTD查询，返回Java版路线和基岩版路线状态、人数和MOTD信息。
 
