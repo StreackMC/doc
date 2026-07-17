@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未知的文档 - 栈流Streack</title>
+</head>
+<body>
+  <iframe src="/404" frameborder="0"></iframe>
+  <script>
+      window.streack = {};
+      window.streack.openURL = function (uri, stayInSameWindow = false) {
+        try {
+          if (window.parent !== window.top) {
+            // 页面在嵌套
+            if (typeof window.top?.streack?.openURL === 'function') {
+              // 找到父页面的 openURL 方法了
+              window.top.streack.openURL(uri, stayInSameWindow);
+              return;
+            } else {
+              // 找不到
+              console.warn(`[streack-app/func.openUrl] 父页面的 openURL 方法无效：`, window.top?.streack?.openURL);
+              window.top.location.href = uri;
+              return;
+            }
+          }
+        } catch (error) {
+          console.error(`[streack-app/func.openUrl] 发现跨域，无法访问父页面属性。`);
+        }
+        const a = document.createElement("a");
+        a.target = stayInSameWindow ? "_self" : "_blank";
+        a.href = uri;
+        a.click();
+        return a;
+      }
+    </script>
+</body>
+</html>
