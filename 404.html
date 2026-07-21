@@ -1,38 +1,76 @@
 <!DOCTYPE html>
 <html lang="zh_cn">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>未知的文档 - 栈流Streack</title>
+  <style>
+    @supports (width: 100dvw) {
+      body {
+        width: 100dvw;
+        height: 100dvh;
+      }
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
+
 <body>
   <iframe src="/404" frameborder="0"></iframe>
   <script>
-      window.streack = {};
-      window.streack.openURL = function (uri, stayInSameWindow = false) {
-        try {
-          if (window.parent !== window.top) {
-            // 页面在嵌套
-            if (typeof window.top?.streack?.openURL === 'function') {
-              // 找到父页面的 openURL 方法了
-              window.top.streack.openURL(uri, stayInSameWindow);
-              return;
-            } else {
-              // 找不到
-              console.warn(`[streack-app/func.openUrl] 父页面的 openURL 方法无效：`, window.top?.streack?.openURL);
-              window.top.location.href = uri;
-              return;
-            }
+    document.body.addEventListener('scroll', () => {
+      document.body.scrollTop = 0;
+      document.body.scrollLeft = 0;
+    });
+    window.streack = {};
+    window.streack.openURL = function (uri, stayInSameWindow = false) {
+      try {
+        if (window.parent !== window.top) {
+          // 页面在嵌套
+          if (typeof window.top?.streack?.openURL === 'function') {
+            // 找到父页面的 openURL 方法了
+            window.top.streack.openURL(uri, stayInSameWindow);
+            return;
+          } else {
+            // 找不到
+            console.warn(`[streack-app/func.openUrl] 父页面的 openURL 方法无效：`, window.top?.streack?.openURL);
+            window.top.location.href = uri;
+            return;
           }
-        } catch (error) {
-          console.error(`[streack-app/func.openUrl] 发现跨域，无法访问父页面属性。`);
         }
-        const a = document.createElement("a");
-        a.target = stayInSameWindow ? "_self" : "_blank";
-        a.href = uri;
-        a.click();
-        return a;
+      } catch (error) {
+        console.error(`[streack-app/func.openUrl] 发现跨域，无法访问父页面属性。`);
       }
-    </script>
+      const a = document.createElement("a");
+      a.target = stayInSameWindow ? "_self" : "_blank";
+      a.href = uri;
+      a.click();
+      return a;
+    }
+  </script>
+  <script>
+    // try to catch relocate
+    const i = document.querySelector('iframe');
+    i.addEventListener('popstate', (e)=>{
+      window.streack.openURL(i.contentWindow?.location?.href ? i.contentWindow?.location?.href : "#");
+    });
+  </script>
+  <script>
+    document.querySelectorAll('script').forEach(e => e.remove());
+  </script>
 </body>
+
 </html>
